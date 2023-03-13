@@ -2,6 +2,7 @@
 Future<String?> getLoggedInUserId({
   required String auth0Domain,
   required String auth0ClientId,
+  String? audience,
   String? redirectUri,
 }) =>
     throw UnsupportedError(

@@ -35,6 +35,14 @@ class Auth0Flutter2 {
     instance._auth0ClientId = value;
   }
 
+  /// Sets the Auth0 ClientId.
+  static set auth0Audience(String audience) {
+    if (audience == instance._auth0ClientId) {
+      return;
+    }
+    instance._audience = audience;
+  }
+
   /// Retrieves the Auth0 ClientId.
   static String get auth0ClientId {
     if (instance._auth0ClientId == null) {
@@ -83,6 +91,9 @@ class Auth0Flutter2 {
 
   /// For Android applications, the custom scheme.
   String? _scheme;
+
+  /// For Android applications, the audience.
+  String? _audience;
 
   /// Fetches the currently authenticated user ID.
   /// Returns null if no user is authenticated.

@@ -6,10 +6,12 @@ import 'get_token_stub.dart'
 Future<String?> getToken({
   required String auth0Domain,
   required String auth0ClientId,
+  String? audience,
   String? redirectUri,
 }) =>
     impl.getToken(
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
       redirectUri: redirectUri,
+      audience: audience,
     );

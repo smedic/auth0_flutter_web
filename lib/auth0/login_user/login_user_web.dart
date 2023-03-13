@@ -1,13 +1,14 @@
 import 'package:auth0_flutter2/auth0/auth0.dart';
-import 'package:auth0_flutter2/auth0/init_auth0/init_auth0_web.dart';
 import 'package:auth0_flutter2/auth0/auth0_flutter_web/auth0_flutter_web.dart'
     as auth0_web;
+import 'package:auth0_flutter2/auth0/init_auth0/init_auth0_web.dart';
 import 'package:flutter/foundation.dart';
 
 /// Logs in user (via universal login) on web.
 Future<String?> loginUser({
   required String auth0Domain,
   required String auth0ClientId,
+  required String? audience,
   String? scheme,
   required String? redirectUri,
   Future<void> Function()? afterLogin,
@@ -16,14 +17,15 @@ Future<String?> loginUser({
     auth0Domain: auth0Domain,
     auth0ClientId: auth0ClientId,
     redirectUri: redirectUri,
+    audience: audience ?? '',
   );
 
   try {
     // Check if user is logged in.
     final user = await getLoggedInUserId(
-      auth0Domain: auth0Domain,
-      auth0ClientId: auth0ClientId,
-    );
+        auth0Domain: auth0Domain,
+        auth0ClientId: auth0ClientId,
+        audience: audience ?? '');
 
     // If user is not logged in, direct to auth page.
     if (user == null) {
@@ -39,13 +41,9 @@ Future<String?> loginUser({
       final nowUser = await getLoggedInUserId(
         auth0Domain: auth0Domain,
         auth0ClientId: auth0ClientId,
+        audience: audience ?? '',
       );
-
-      if (nowUser != null) {
-        return nowUser;
-      } else {
-        return null;
-      }
+      return nowUser;
     } else {
       return user;
     }
