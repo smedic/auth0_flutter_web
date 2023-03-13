@@ -35,14 +35,6 @@ class Auth0Flutter2 {
     instance._auth0ClientId = value;
   }
 
-  /// Sets the Auth0 ClientId.
-  static set auth0Audience(String audience) {
-    if (audience == instance._auth0ClientId) {
-      return;
-    }
-    instance._audience = audience;
-  }
-
   /// Retrieves the Auth0 ClientId.
   static String get auth0ClientId {
     if (instance._auth0ClientId == null) {
@@ -75,6 +67,19 @@ class Auth0Flutter2 {
   /// Retrieves the custom scheme.
   static String get scheme {
     return instance._scheme!;
+  }
+
+  /// Sets the Auth0 ClientId.
+  static set auth0Audience(String audience) {
+    if (audience == instance._auth0ClientId) {
+      return;
+    }
+    instance._audience = audience;
+  }
+
+  /// Retrieves the audience.
+  static String get audience {
+    return instance._audience!;
   }
 
   /// The instance of [Auth0Flutter2].

@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 Future<String?> loginUser({
   required String auth0Domain,
   required String auth0ClientId,
-  required String? audience,
+  String? audience,
   String? scheme,
   required String? redirectUri,
   Future<void> Function()? afterLogin,

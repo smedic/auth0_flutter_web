@@ -6,7 +6,7 @@ import 'package:auth0_flutter2/auth0/init_auth0/init_auth0_web.dart';
 Future<void> logoutUser({
   required String auth0Domain,
   required String auth0ClientId,
-  required String? audience,
+  String? audience,
   String? scheme,
 }) async {
   auth0_web.Auth0 auth0 = await initAuth0Web(

@@ -7,8 +7,8 @@ Future<bool> handleRedirectCallback({
   required String auth0Domain,
   required String auth0ClientId,
   required String? redirectUri,
-  required String? audience,
   required String? url,
+  String? audience,
 }) async {
   auth0_web.Auth0? auth0 = await initAuth0Web(
     auth0Domain: auth0Domain,
