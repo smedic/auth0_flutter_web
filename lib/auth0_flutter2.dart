@@ -107,6 +107,7 @@ class Auth0Flutter2 {
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
       redirectUri: redirectUri,
+      audience: audience,
     );
   }
 
@@ -117,6 +118,7 @@ class Auth0Flutter2 {
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
       redirectUri: redirectUri,
+      audience: audience,
     );
   }
 
@@ -130,6 +132,7 @@ class Auth0Flutter2 {
       auth0ClientId: auth0ClientId,
       redirectUri: redirectUri,
       scheme: scheme,
+      audience: audience,
       // afterLogin: afterLogin,
     );
   }
@@ -142,6 +145,7 @@ class Auth0Flutter2 {
         auth0Domain: auth0Domain,
         auth0ClientId: auth0ClientId,
         redirectUri: redirectUri,
+        audience: audience,
         url: url,
       );
     } catch (e) {
@@ -154,6 +158,7 @@ class Auth0Flutter2 {
     return auth02.logoutUser(
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
+      audience: audience,
       scheme: scheme,
     );
   }
